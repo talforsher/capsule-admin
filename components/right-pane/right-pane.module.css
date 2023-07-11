@@ -1,0 +1,55 @@
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 100vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 25px 0px 0px 25px;
+  background: var(
+    --gradient-05,
+    linear-gradient(260deg, #d65bdb 0%, #f97abe 100%)
+  );
+}
+
+.logo {
+  position: absolute;
+  top: 5rem;
+}
+
+.links {
+  width: 12rem;
+  position: absolute;
+  top: 15rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
+}
+
+.link.active {
+  background: white;
+}
+
+.link.active .icon {
+  color: 0000000000;
+}
+
+.user {
+  position: absolute;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

@@ -1,0 +1,53 @@
+{
+  "matchesInfo": {
+    "newCases": 15,
+    "waitingCases": 8,
+    "inProcess": 58,
+    "closedCases": 4
+  },
+  "tableInfo": [
+    {
+      "caseId": "1234",
+      "fileDate": "2020-01-01",
+      "violenceType": [3],
+      "location": "יהורם 5, תל אביב",
+      "reports": 2,
+      "status": "בטיפול",
+      "referredTo": "משטרה",
+      "flag": true
+    },
+    {
+      "caseId": "4578",
+      "fileDate": "2020-01-02",
+      "violenceType": [1, 2],
+      "location": "החמישייה 5, גבעתיים",
+      "reports": 1,
+      "status": "פתוח",
+      "referredTo": "משטרה",
+      "flag": false
+    }
+  ],
+  "newReports": [
+    {
+      "reportId": 1234,
+      "date": "2020-01-01",
+      "violenceType": [1, 3],
+      "location": "הקשקשים 3, גבעת חימשה",
+      "complaintFiled": true
+    },
+    {
+      "reportId": 1235,
+      "date": "2020-01-02",
+      "violenceType": [2, 3],
+      "location": "יהוחבץ 14, תל אביב",
+      "complaintFiled": false
+    },
+    {
+      "reportId": 1236,
+      "date": "2020-01-03",
+      "violenceType": [1, 2, 3],
+      "location": "גרגמל 9, בת ים",
+      "complaintFiled": true
+    }
+  ]
+}

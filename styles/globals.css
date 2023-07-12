@@ -101,3 +101,15 @@ a {
     color-scheme: dark;
   }
 }
+
+.pink {
+  color: #f97abe;
+}
+
+.pink-bg {
+  background: #f97abe;
+}
+
+.border {
+  border: 1px solid;
+}

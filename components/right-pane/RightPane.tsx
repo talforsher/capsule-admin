@@ -48,12 +48,12 @@ const RightPane = () => {
         </Link>
       </div>
       <div className={styles.user}>
-        <div className={styles.link}>
+        <div className={styles.name}>
           <img src="/icons/user.svg" alt="user" />
           {user?.name || "אורח"}
         </div>
         <div
-          className={styles.link}
+          className={styles.logout}
           onClick={
             () => {}
             // ()=> logout()

@@ -3,6 +3,7 @@ import styles from "./snapshot.module.css";
 import { dashboardContext } from "@/context/dashboardContext";
 import { Reports } from "@/types/reports";
 import { useRouter } from "next/router";
+import ViolenceTypeColors from "../violence-type-colors/ViolenceTypeColors";
 
 const Snapshot = () => {
   const { reports } = useContext<any>(dashboardContext);
@@ -93,7 +94,9 @@ const Snapshot = () => {
               <td>{item.caseId}</td>
               <td>{new Date(item.fileDate).toLocaleDateString("he-IL")}</td>
               <td>{item.reports}</td>
-              <td>{item.violenceType}</td>
+              <td>
+                <ViolenceTypeColors type={item.violenceType} />
+              </td>
               <td>{item.location}</td>
               <td>{item.status}</td>
               <td>{item.referredTo}</td>

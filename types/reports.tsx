@@ -8,7 +8,7 @@ export interface MatchesInfo {
 export interface TableInfo {
   caseId: string;
   fileDate: Date;
-  violenceType: string[];
+  violenceType: numner[];
   location: string;
   reports: number;
   status: string;

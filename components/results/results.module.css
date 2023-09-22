@@ -1,7 +1,7 @@
 .results {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   width: 100%;
   padding: 2rem;
 }
@@ -56,7 +56,7 @@
 .tableWrapper .tableButtons {
   display: flex;
   justify-content: flex-end;
-  align-items: end;
+  align-items: flex-end;
   gap: 2rem;
   width: 100%;
 }
@@ -79,6 +79,7 @@
 }
 
 .tableWrapper .table th {
+  cursor: pointer;
   padding: 1rem;
   border-bottom: 1px solid var(--neutral-200, #e5e7eb);
   font-family: Assistant;
@@ -87,6 +88,10 @@
   font-weight: 600;
   line-height: normal;
   color: var(--neutral-700, #4b5563);
+}
+
+.tableWrapper .table th i {
+  padding: 0 1rem;
 }
 
 .tableWrapper .table td {
@@ -98,4 +103,53 @@
   font-weight: 400;
   line-height: normal;
   color: var(--neutral-700, #4b5563);
+}
+
+.detailsButton {
+  border: none;
+  padding: 1rem;
+  background-color: transparent;
+  font-weight: 600;
+  color: var(--primary-300, #f538a0);
+  cursor: pointer;
+}
+
+.detailsButton:hover {
+  transform: scale(1.2);
+}
+
+.detailsButton:active {
+  transform: scale(1.4);
+}
+
+.sortIcon {
+  color: #c4c4c4;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+.sortIconActive {
+  color: #000;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.filters {
+  position: absolute;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+}
+
+.filters .filter {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.filters h3 {
+  margin-bottom: 0.5rem;
+}
+
+.filters .filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

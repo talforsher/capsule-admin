@@ -18,13 +18,27 @@ const App = () => {
   };
 
   const getReports = async () => {
-    const data = await new Promise((resolve, reject) => {
-      setTimeout(async () => {
-        const reportsMock = await axios("/reports-mock.json");
-        resolve(reportsMock.data);
-      }, 1000);
-    });
-    setReports(data);
+    const reports = (await axios("/aws/get-alerts")).data;
+
+    const normalizedData = {
+      matchesInfo: {
+        newCases: reports.length,
+        waitingCases: reports.length,
+        inProcess: 0,
+        closedCases: 0,
+      },
+      tableInfo: [],
+      newReports: reports.data.map((report) => {
+        return {
+          reportId: report.id,
+          date: report.date,
+          violenceType: report.violence_type,
+          location: report.location,
+          complaintFiled: report.complaint_filed,
+        };
+      }),
+    };
+    setReports(normalizedData);
   };
 
   const {

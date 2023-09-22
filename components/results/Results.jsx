@@ -13,7 +13,7 @@ const statuses = [
 ];
 
 const Results = () => {
-  const { reports } = useContext<any>(dashboardContext);
+  const { reports } = useContext(dashboardContext);
 
   const thRef = useRef([]);
 

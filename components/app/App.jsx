@@ -7,7 +7,7 @@ import Results from "../results/Results";
 import axios from "axios";
 
 const App = () => {
-  const { setUser, setReports } = useContext<any>(dashboardContext);
+  const { setUser, setReports } = useContext(dashboardContext);
   const getUserData = async () => {
     const data = await new Promise((resolve, reject) => {
       setTimeout(() => {

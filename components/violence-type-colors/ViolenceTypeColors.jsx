@@ -1,7 +1,7 @@
 import React from "react";
 import violenceTypes from "@/utils/violence-types";
 
-const ViolenceTypeColors = ({ type }: { type: number[] }) => {
+const ViolenceTypeColors = ({ type }) => {
   return (
     <div style={{ display: "flex", gap: "0.5rem" }}>
       {type.map((item, index) => (

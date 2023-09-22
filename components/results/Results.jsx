@@ -50,7 +50,7 @@ const Results = () => {
       });
       setResults(sorted);
     }
-  }, [sort, results]);
+  }, [sort]);
 
   useEffect(() => {
     if (filters.length > 0) {

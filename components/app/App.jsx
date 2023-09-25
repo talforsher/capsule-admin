@@ -28,15 +28,7 @@ const App = () => {
         closedCases: 0,
       },
       tableInfo: [],
-      newReports: reports.data.map((report) => {
-        return {
-          reportId: report.id,
-          date: report.date,
-          violenceType: report.violence_type,
-          location: report.location,
-          complaintFiled: report.complaint_filed,
-        };
-      }),
+      newReports: reports
     };
     setReports(normalizedData);
   };
@@ -49,6 +41,7 @@ const App = () => {
     getUserData();
     getReports();
   }, []);
+  
   return (
     <div className={styles.app}>
       {tab?.[0] === "dashboard" && <Snapshot />}

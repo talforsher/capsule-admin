@@ -1,9 +1,75 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styles from "./snapshot.module.css";
 import { dashboardContext } from "@/context/dashboardContext";
 import { Reports } from "@/types/reports";
 import { useRouter } from "next/router";
 import ViolenceTypeColors from "../violence-type-colors/ViolenceTypeColors";
+
+const ThreeDots = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        const width = canvas.width;
+        const height = canvas.height;
+        let radius = 10;
+        const x = width / 2;
+        const y = height / 2;
+        const step = (2 * Math.PI) / 3;
+        let angle = 0;
+        const draw = () => {
+          ctx.fillStyle = "#f538a0";
+          ctx.clearRect(0, 0, width, height);
+          ctx.beginPath();
+          ctx.arc(
+            x + radius * Math.cos(angle),
+            y + radius * Math.sin(angle),
+            5,
+            0,
+            2 * Math.PI
+          );
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(
+            x + radius * Math.cos(angle + step),
+            y + radius * Math.sin(angle + step),
+            5,
+            0,
+            2 * Math.PI
+          );
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(
+            x + radius * Math.cos(angle + 2 * step),
+            y + radius * Math.sin(angle + 2 * step),
+            5,
+            0,
+            2 * Math.PI
+          );
+          ctx.fill();
+          angle += 0.01;
+          radius = 7 * Math.cos(angle);
+          requestAnimationFrame(draw);
+        };
+        draw();
+      }
+    }
+  }, []);
+
+  return (
+    <div className="d-flex justify-content-center align-items-center">
+      <canvas
+        ref={canvasRef}
+        style={{ width: "50px", height: "50px" }}
+        width={50}
+        height={50}
+      />
+    </div>
+  );
+};
 
 const Snapshot = () => {
   const { reports } = useContext<any>(dashboardContext);
@@ -17,9 +83,7 @@ const Snapshot = () => {
         <div className={styles.summaryItem}>
           <img width={100} src="/icons/folder-new.svg" alt="folder-new" />
           <div>
-            <div className={styles.summaryItemValue}>
-              {reports?.matchesInfo.newCases || "..."}
-            </div>
+            {reports?.matchesInfo.newCases || <ThreeDots />}
             <div className={styles.summaryItemTitle}>
               <b>תיקים חדשים</b>
             </div>
@@ -32,9 +96,7 @@ const Snapshot = () => {
             alt="folder-not started"
           />
           <div>
-            <div className={styles.summaryItemValue}>
-              {reports?.matchesInfo.waitingCases || "..."}
-            </div>
+            {reports?.matchesInfo.waitingCases || <ThreeDots />}
             <div className={styles.summaryItemTitle}>
               <b>תיקים ממתינים</b>
             </div>
@@ -47,9 +109,7 @@ const Snapshot = () => {
             alt="folder-in progress"
           />
           <div>
-            <div className={styles.summaryItemValue}>
-              {reports?.matchesInfo.inProcess || "..."}
-            </div>
+            {reports?.matchesInfo.inProcess || <ThreeDots />}
             <div className={styles.summaryItemTitle}>
               <b>תיקים בטיפול</b>
             </div>
@@ -58,9 +118,7 @@ const Snapshot = () => {
         <div className={styles.summaryItem}>
           <img width={100} src="/icons/folder-done.svg" alt="folder-closed" />
           <div>
-            <div className={styles.summaryItemValue}>
-              {reports?.matchesInfo.closedCases || "..."}
-            </div>
+            {reports?.matchesInfo.closedCases || <ThreeDots />}
             <div className={styles.summaryItemTitle}>
               <b>תיקים סגורים</b>
             </div>
